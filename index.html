@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가상의 편지 대화</title>
     <style>
+
+        @font-face {
+            font-family: 'LINESeedKR-Rg';
+            src: url('https://cdn.jsdelivr.net/gh/wizfile/font/LINESeedKR-Rg.eot');
+            src:url('https://cdn.jsdelivr.net/gh/wizfile/font/LINESeedKR-Rg.woff') format('woff');
+            font-style: normal;
+        }
+        
+
         html{
             height: 100%;
             background: linear-gradient(135deg, #ff9060, #92bdf8); /* 그라데이션 배경 */
@@ -21,6 +30,7 @@
             align-items: center;
             justify-content: center;
             animation: fadeIn 1s ease-in;
+            font-family: LINESeedKR-Rg;
         }
 
         @keyframes gradientAnimation {
@@ -76,6 +86,20 @@
             flex-direction: column;
             align-items: center;
             gap: 5px;
+        }
+
+        .input-label .emoji {
+            font-size: 1.5rem;
+            animation: bounce 1.5s infinite; /* 애니메이션 추가 */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         .input-label .emoji {
@@ -282,8 +306,8 @@
 </head>
 <body>
     <div id="landing-page" class="container">
-        <h1>가상의 편지 대화 애플리케이션</h1>
-        <p>이 애플리케이션은 편지를 주고받으며 대화 시뮬레이션을 제공합니다.</p>
+        <h1>messaGPT</h1>
+        <p>지금 바로 대화해보세요.</p>
         <button id="startButton">시작하기</button>
     </div>
 
