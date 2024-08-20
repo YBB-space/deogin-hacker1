@@ -34,28 +34,23 @@
         }
 
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 0%;
-            }
-            50% {
-                background-position: 100% 100%;
-            }
-            100% {
-                background-position: 0% 0%;
-            }
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
         }
 
         .container {
             max-width: 100%;
             width: 100%;
+            max-width: 600px;
             min-height: 80vh;
             background: #ffffff;
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            padding: 20px;
-            animation: slideUp 0.5s ease-out;
+            padding: 24px;
             box-sizing: border-box;
+            animation: fadeIn 0.8s ease-out;
         }
 
         #landing-page, #input-section, #chat-section {
@@ -67,60 +62,62 @@
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: #333;
             margin-bottom: 20px;
         }
 
         p {
             font-size: 1.2rem;
+            color: #555;
             margin-bottom: 30px;
-            color: #333;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #007aff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #0051a8;
+            transform: scale(1.05);
         }
 
         .input-label {
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: #333;
-            font-size: 1rem;
+            font-size: 1.1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
         }
 
         .input-label .emoji {
-            font-size: 1.5rem;
-            animation: bounce 1.5s infinite; /* 애니메이션 추가 */
+            font-size: 2rem;
+            animation: bounce 1.5s infinite;
         }
 
         @keyframes bounce {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .input-label .emoji {
-            font-size: 1.5rem;
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .input-label .text {
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-align: center;
         }
 
-        .input-label[data-step="1"] .emoji { content: '🧐'; }
-        .input-label[data-step="2"] .emoji { content: '🔎'; }
-        .input-label[data-step="3"] .emoji { content: '😊'; }
-        .input-label[data-step="4"] .emoji { content: '🔎'; }
-        .input-label[data-step="5"] .emoji { content: '✉️'; }
-
         input, textarea {
             width: 100%;
-            max-width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -137,87 +134,45 @@
         }
 
         textarea {
-            height: 120px;
-            resize: none;
-        }
-
-        .input-group {
-            width: 100%;
-            max-width: 500px;
-            margin: 10px 0;
-        }
-
-        .input-group + .input-group {
-            margin-top: 20px;
-        }
-
-        .chat-input-container {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            max-width: 500px;
-            margin: 10px 0;
-            gap: 10px;
-        }
-
-        .chat-input-container input {
-            flex: 1;
-        }
-
-        button {
-            padding: 8px 16px;
-            background-color: #007aff;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        button:hover {
-            background-color: #0051a8;
-            transform: scale(1.05);
+            height: 150px;
+            resize: vertical;
         }
 
         .next-button-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         #chat-log {
             border: none;
-            padding: 10px;
-            height: 600px;
+            padding: 15px;
+            height: 50vh;
             overflow-y: auto;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             background-color: #f1f1f3;
             border-radius: 12px;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
             position: relative;
         }
 
         .message {
             margin: 10px 0;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border-radius: 20px;
-            max-width: 80%;
-            font-size: 0.9rem;
-            opacity: 0;
-            animation: fadeInMessage 0.5s ease-in forwards;
+            max-width: 75%;
+            font-size: 1rem;
             display: flex;
             flex-direction: column;
             position: relative;
-            text-align: left; /* 텍스트 왼쪽 정렬 */
+            text-align: left;
+            opacity: 0;
+            animation: fadeInMessage 0.5s ease-in forwards;
         }
 
         .message .timestamp {
             font-size: 0.75rem;
-            color: #888;
+            color: #fff;
             margin-top: 5px;
+            text-align: right;
         }
 
         .user-message {
@@ -232,11 +187,6 @@
             color: black;
             align-self: flex-start;
             border-radius: 20px 20px 20px 0;
-        }
-
-        .chat-container {
-            display: flex;
-            flex-direction: column;
         }
 
         .blurred {
@@ -256,18 +206,13 @@
             text-align: center;
             z-index: 10;
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             animation: fadeIn 0.5s ease-in;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes fadeInMessage {
@@ -286,7 +231,7 @@
             }
 
             button {
-                padding: 6px 12px;
+                padding: 8px 16px;
                 font-size: 0.9rem;
             }
 
@@ -294,14 +239,6 @@
                 height: 300px;
             }
         }
-
-        .step-container {
-            width: 100%;
-            max-width: 500px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
     </style>
 </head>
 <body>
@@ -315,7 +252,7 @@
         <div id="input-section">
             <div id="step1" class="step-container">
                 <div class="input-label" data-step="1">
-                    <div class="emoji" style="font-size: 50px;">🧐</div>
+                    <div class="emoji">🧐</div>
                     <div class="text">당신의 이름은 무엇인가요?</div>
                 </div>
                 <input type="text" id="userName" required>
@@ -326,7 +263,7 @@
 
             <div id="step2" class="step-container" style="display: none;">
                 <div class="input-label" data-step="2">
-                    <div class="emoji" style="font-size: 50px;">🔎</div>
+                    <div class="emoji">🔎</div>
                     <div class="text">당신의 역할은 무엇인가요?</div>
                 </div>
                 <input type="text" id="userRole" required>
@@ -337,7 +274,7 @@
 
             <div id="step3" class="step-container" style="display: none;">
                 <div class="input-label" data-step="3">
-                    <div class="emoji" style="font-size: 50px;">😊</div>
+                    <div class="emoji">😊</div>
                     <div class="text">편지를 받는 이의 이름은 무엇인가요?</div>
                 </div>
                 <input type="text" id="recipientName" required>
@@ -348,7 +285,7 @@
 
             <div id="step4" class="step-container" style="display: none;">
                 <div class="input-label" data-step="4">
-                    <div class="emoji" style="font-size: 50px;">🔎</div>
+                    <div class="emoji">🔎</div>
                     <div class="text">편지를 받는 이는 누구 인가요?</div>
                 </div>
                 <input type="text" id="recipientRole" required>
@@ -359,7 +296,7 @@
 
             <div id="step5" class="step-container" style="display: none;">
                 <div class="input-label" data-step="5">
-                    <div class="emoji" style="font-size: 50px;">✉️</div>
+                    <div class="emoji">✉️</div>
                     <div class="text">편지 내용을 입력해 주세요:</div>
                 </div>
                 <textarea id="letterContent" required></textarea>
@@ -378,7 +315,7 @@
         </div>
         <div class="error-message" id="errorMessage">
             <span class="emoji">😥</span>
-            <div>오류가 발생했습니다. 다시 시도해 주세요.</div>
+            <div>오류가 발생했습니다</div>
         </div>
     </div>
 
@@ -386,7 +323,6 @@
         let messages = [];
         let currentStep = 1;
 
-        // 랜딩 페이지 시작하기 버튼 클릭 이벤트
         document.getElementById('startButton').addEventListener('click', function() {
             document.getElementById('landing-page').style.display = 'none';
             document.getElementById('main-content').style.display = 'flex';
@@ -457,7 +393,7 @@
         });
 
         async function callOpenAI(messages) {
-            const apiKey = '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';
+            const apiKey = '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';
 
             try {
                 const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -476,7 +412,7 @@
                             }
                         ],
                         temperature: 0.7,
-                        max_tokens: 100
+                        max_tokens: 150
                     })
                 });
 
@@ -501,3 +437,6 @@
     </script>
 </body>
 </html>
+
+
+    
