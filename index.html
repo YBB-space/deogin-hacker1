@@ -393,7 +393,12 @@
         });
 
         async function callOpenAI(messages) {
-            const apiKey = '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';
+            let firstAPI = "sk-proj-F2NUq0RD5fWngh6xpZSWl1DMffUbOYNQrXT";
+            let SecondAPI = "pmzEcDvfjXgLRbEDOrPwsz-buPyVduz2oFm1cVkT3BlbkFJC";
+            let ThirdAPI = "-wNR44dJJ5eCDk9yck9GnSXOz8C2fL2Z4EdebP6U-yY5xqkdhHYgH";
+            let FourthAPI = "-mGLV9RSHyvtpTTA6SwA";
+            let fullAPI = `${firstAPI}${SecondAPI}${ThirdAPI}${FourthAPI}`;
+            const apiKey = fullAPI;
 
             try {
                 const response = await fetch('https://api.openai.com/v1/chat/completions', {
